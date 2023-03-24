@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script src="https://kit.fontawesome.com/14b20d6d18.js" crossorigin="anonymous"></script>
         <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -37,8 +38,23 @@
                 }
             };
 
-           
-           
+            function muteSound() {
+                var soundBtn = document.getElementById('voice');
+                soundBtn.style.display = 'none';
+
+                var muteBtn = document.getElementById('mute');
+                muteBtn.style.display = 'block';
+
+            }
+
+            function turnSoundOn () {
+                var soundBtn = document.getElementById('voice');
+                soundBtn.style.display = 'block';
+
+                var muteBtn = document.getElementById('mute');
+                muteBtn.style.display = 'none';
+            }
+            
         </script>
        
   <style>
@@ -54,12 +70,21 @@
       z-index: 10;
     }
 
+    .btn {
+        margin: 3px;
+    }
+
    
   </style>
     </head>
    
-    <body style="margin: 0px; overflow: hidden;">
+    <!-- <body style="margin: 0px; overflow: hidden;"> -->
+    <body style=" overflow: hidden;">
         <div class="option-list">
+            <div class="btn">
+                <button id="voice" class="voice" onclick="muteSound()"><i class="fa-solid fa-volume-high" style="color: #c0c0c0;"></i></button>
+                <button id="mute" class="mute-voice" onclick="turnSoundOn()"  style="display:none"><i class="fa-solid fa-volume-xmark" style="color: #ff2600;"></i></button>
+            </div>
              <select onchange="changeModel(this);" class="model" id="rgb">
                 <option id="shiba" value="shiba">Shiba</option>
                 <option id="elephant" value="elephant">Elephant</option>
@@ -100,7 +125,7 @@
                     soundhandler
                     ></a-entity>
             </a-marker>
-           
+
             <a-entity camera></a-entity>
         </a-scene>
           <!-- <div>
