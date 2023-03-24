@@ -18,7 +18,7 @@
                 if (modelName==="elephant") {
                     console.log("debug")
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/elephant/scene.gltf");
-                    document.querySelector("a-entity").setAttribute("scale", "0.01 0.01 0.01");
+                    document.querySelector("a-entity").setAttribute("scale", "0.02 0.02 0.02");
                     document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/elephant.mp3); on: click");
                 }
 
@@ -36,7 +36,17 @@
                 }
             };
 
+            AFRAME.registerComponent('soundhandler', {
+                tick: function () {
+                    var entity = document.querySelector('[sound]');
+                    if (document.querySelector('a-marker').object3D.visible == true) {
+                        entity.components.sound.playSound();
+                    } else {
+                        entity.components.sound.pauseSound();
+                    }
 
+                }
+            });
            
         </script>
        
@@ -94,7 +104,8 @@
                     gltf-model="#model"
                     animation-mixer
                     htmlembed
-                    sound="src: url(public/sound/dog.wav); on: gesture-handler"
+                    sound="src: url(public/sound/dog.wav);"
+                    soundhandler
                     ></a-entity>
             </a-marker>
            
