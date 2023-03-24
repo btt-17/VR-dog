@@ -20,19 +20,19 @@
                     console.log("debug")
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/elephant/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "0.02 0.02 0.02");
-                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/elephant.mp3)");
+                    document.querySelector("a-entity").setAttribute("sound", "src: public/sound/elephant.mp3");
                 }
 
                 if (modelName==="shiba") {
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/shiba/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "1 1 1");
-                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/dog.wav)");
+                    document.querySelector("a-entity").setAttribute("sound", "src: public/sound/dog.wav");
                 }
 
                 if (modelName==="horse") {
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/horse/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "1 1 1");
-                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/horse.wav)");
+                    document.querySelector("a-entity").setAttribute("sound", "src: public/sound/horse.wav");
                     
                 }
             };
@@ -80,6 +80,7 @@
                 <a-asset-item id="model2" src="public/elephant/scene.gltf" ></a-asset-item>
                 <audio id="horse-sound" src="public/sound/horse.wav" preload="auto"></audio>
                 <audio id="dog-sound" src="public/sound/dog.wav" preload="auto"></audio>
+                <audio id="elephant-sound" src="public/sound/elephant.mp3" preload="auto"></audio>
               </a-assets>
             <a-marker preset="hiro" 
                 raycaster="objects: .clickable"
@@ -95,7 +96,7 @@
                     gltf-model="#model"
                     animation-mixer
                     htmlembed
-                    sound="src: url(public/sound/dog.wav);"
+                    sound="src: public/sound/dog.wav;"
                     soundhandler
                     ></a-entity>
             </a-marker>
