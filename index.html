@@ -10,6 +10,7 @@
         <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
         <script src="scripts/gesture-detector.js"></script>
         <script src="scripts/gesture-handler.js"></script>
+        <script src="scripts/soundhandler.js"></script>
         <script>
             function changeModel(modelParam) {
                 let modelName = modelParam.value.toLowerCase();
@@ -19,34 +20,24 @@
                     console.log("debug")
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/elephant/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "0.02 0.02 0.02");
-                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/elephant.mp3); on: click");
+                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/elephant.mp3)");
                 }
 
                 if (modelName==="shiba") {
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/shiba/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "1 1 1");
-                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/dog.wav); on: click");
+                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/dog.wav)");
                 }
 
                 if (modelName==="horse") {
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/horse/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "1 1 1");
-                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/horse.wav); on: click");
+                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/horse.wav)");
                     
                 }
             };
 
-            AFRAME.registerComponent('soundhandler', {
-                tick: function () {
-                    var entity = document.querySelector('[sound]');
-                    if (document.querySelector('a-marker').object3D.visible == true) {
-                        entity.components.sound.playSound();
-                    } else {
-                        entity.components.sound.pauseSound();
-                    }
-
-                }
-            });
+           
            
         </script>
        
