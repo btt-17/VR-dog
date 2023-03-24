@@ -19,16 +19,20 @@
                     console.log("debug")
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/elephant/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "0.03 0.03 0.03");
+                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/elephant.mp3); on: click");
                 }
 
                 if (modelName==="shiba") {
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/shiba/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "1 1 1");
+                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/dog.wav); on: click");
                 }
 
                 if (modelName==="horse") {
                     document.querySelector("a-entity").setAttribute("gltf-model", "public/horse/scene.gltf");
                     document.querySelector("a-entity").setAttribute("scale", "1 1 1");
+                    document.querySelector("a-entity").setAttribute("sound", "src: url(public/sound/horse.wav); on: click");
+                    
                 }
             };
         </script>
@@ -70,6 +74,8 @@
             <a-assets>
                 <a-asset-item id="model" src="public/shiba/scene.gltf" ></a-asset-item>
                 <a-asset-item id="model2" src="public/elephant/scene.gltf" ></a-asset-item>
+                <audio id="horse-sound" src="public/sound/horse.wav" preload="auto"></audio>
+                <audio id="dog-sound" src="public/sound/dog.wav" preload="auto"></audio>
               </a-assets>
             <a-marker preset="hiro" 
                 raycaster="objects: .clickable"
@@ -85,11 +91,10 @@
                     gltf-model="#model"
                     animation-mixer
                     htmlembed
+                    sound="src: url(public/sound/dog.wav); on: click"
                     ></a-entity>
             </a-marker>
-            <a-entity position="0 1.6 -1" htmlembed>
-                <p>My HTML</p>
-            </a-entity>
+           
             <a-entity camera></a-entity>
         </a-scene>
           <!-- <div>
