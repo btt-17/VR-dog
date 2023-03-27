@@ -36,6 +36,13 @@
                     document.querySelector("a-entity").setAttribute("sound", "src: public/sound/horse.wav");
                     
                 }
+
+                if (modelName==="tokyo") {
+                    document.querySelector("a-entity").setAttribute("gltf-model", "public/littlest_tokyo/scene.gltf");
+                    document.querySelector("a-entity").setAttribute("scale", "0.005 0.005 0.005");
+                    document.querySelector("a-entity").setAttribute("sound", "src: public/sound/tokyo-metro.mp3");
+                    
+                }
             };
 
             function muteSound() {
@@ -89,6 +96,7 @@
                 <option id="shiba" value="shiba">Shiba</option>
                 <option id="elephant" value="elephant">Elephant</option>
                 <option id="horse" value="horse">Horse</option>
+                <option id="tokyo" value="tokyo">Littlest Tokyo</option>
             </select>
         </div>
         <a-scene 
